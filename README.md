@@ -1,0 +1,1 @@
+## MEAN Stack based auth app
