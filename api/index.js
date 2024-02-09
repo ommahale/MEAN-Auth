@@ -1,8 +1,10 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from "dotenv";
+import roleRouter from "./routes/roles.js"
 const app =express();
 dotenv.config();
+app.use(express.json())
 const connectstr = process.env.MONGODB_STR;
 const connect = async ()=>{
     try {
@@ -13,9 +15,7 @@ const connect = async ()=>{
     }
 }
 
-app.use('/',(req,res)=>{
-    res.send({"message":"Application Backend Home"});
-})
+app.use('/api/role',roleRouter)
 
 app.listen(8800,()=>{
     connect()
